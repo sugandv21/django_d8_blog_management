@@ -1,0 +1,13 @@
+{% extends 'blog/layout/base.html' %}
+{% block content %}
+<h2>Posts</h2>
+<ul>
+  {% for post in posts %}
+    <li>
+      <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> - {{ post.author }}
+    </li>
+  {% empty %}
+    <li>No posts yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
